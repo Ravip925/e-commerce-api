@@ -11,6 +11,8 @@ const cartRoute = require("./routes/cart")
 const orderRoute = require("./routes/order");
 const stripeRoute = require("./routes/stripe");
 
+app.use(cors());
+app.use(express.json())
 
 mongoose
   .connect(process.env.MONGO_URL)
@@ -21,8 +23,7 @@ mongoose
     console.log(err);
   });
 
-  app.use(cors());
-  app.use(express.json())
+  
 
   app.get("/api/data",(req,res)=>{
     res.send("successful")
