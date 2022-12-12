@@ -10,7 +10,12 @@ const productRoute = require("./routes/product");
 const stripeRoute = require("./routes/stripe");
 
 
+app.use(express.json())
 app.use(cors());
+app.use(express.urlencoded({
+  extended: true
+}));
+
 mongoose
   .connect(process.env.MONGO_URL,{
     useNewUrlParser: true,
@@ -23,9 +28,6 @@ mongoose
     console.log(err);
   });
 
-  
-  app.use(express.json())
-  
   app.get("/api/data", (req,res)=>{
     res.send("successfull");
   })
