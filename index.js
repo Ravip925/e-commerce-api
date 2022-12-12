@@ -25,6 +25,10 @@ mongoose
 
   
   app.use(express.json())
+  
+  app.get("/api/data", (req,res)=>{
+    res.send("successfull");
+  })
 
   app.use("/api/auth", authRoute); 
   app.use("/api/products", productRoute); 
