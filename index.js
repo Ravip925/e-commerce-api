@@ -1,6 +1,12 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+
+app.use(cors({
+  origin:"*",
+  methods: ["GET","POST"]
+}));
+
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
@@ -11,10 +17,6 @@ const stripeRoute = require("./routes/stripe");
 
 
 app.use(express.json())
-app.use(cors({
-  origin:"*",
-  methods: ["GET","POST"]
-}));
 app.use(express.urlencoded({
   extended: true
 }));
