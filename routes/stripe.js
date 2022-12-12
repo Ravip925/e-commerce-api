@@ -1,11 +1,11 @@
-const { verifyTokenAndAuthorization } = require("./verifyToken");
+const { verifyToken } = require("./verifyToken");
 
 const router = require("express").Router();
 const KEY = process.env.STRIPE_KEY;
 const stripe = require("stripe")(KEY);
 
 
-router.post("/payment",verifyTokenAndAuthorization, (req, res) => {
+router.post("/payment",verifyToken, (req, res) => {
     stripe.charges.create(
       {
         source: req.body.tokenId,
