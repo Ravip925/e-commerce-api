@@ -12,7 +12,7 @@ const stripeRoute = require("./routes/stripe");
 
 app.use(express.json())
 app.use(cors({
-  origin:"https://helpful-mite-undershirt.cyclic.app/",
+  origin:"*",
   methods: ["GET","POST"]
 }));
 app.use(express.urlencoded({
